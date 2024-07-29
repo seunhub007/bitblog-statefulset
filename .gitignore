@@ -5,3 +5,6 @@ terraform*
 cid_key
 .terraform.lock.hcl
 terraform.tfstate
+bit_key
+bit_key.pub
+
