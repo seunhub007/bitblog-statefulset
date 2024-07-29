@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitblog-service
+spec:
+  selector:
+    app: bitblog
+  ports:
+  - port: 74
+    targetPort: 80

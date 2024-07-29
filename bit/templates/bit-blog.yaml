@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitblog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitblog
+  template:
+    metadata:
+      labels:
+        app: bitblog
+    spec:
+      containers:
+      - name: bitblog
+        image: seun007/bitblog:7
+        ports:
+        - containerPort: 80
+

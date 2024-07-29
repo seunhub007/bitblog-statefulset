@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  labels:
+    name: myingress
+spec:
+  rules:
+  - host: bit.mayok.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: bitblog-service
+            port: 
+              number: 80
+  - host: www.mayok.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: pma-service
+            port: 
+              number: 80 
+  tls:
+   - hosts:
+       - bit.mayok.xyz
+       - www.mayok.xyz
+     secretName: tls-2048-kibana                       
